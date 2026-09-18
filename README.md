@@ -29,38 +29,38 @@ Every endpoint operates on an `accountId` you choose (any string). There's no ac
 ### Deposit
 
 ```bash
-curl -X POST http://localhost:8080/accounts/alice/deposits \
+curl -X POST http://localhost:8080/accounts/jorge/deposits \
   -H "Content-Type: application/json" \
   -d '{"amount": 100.00}'
 ```
 ```json
-{"accountId":"alice","balance":100.00}
+{"accountId":"jorge","balance":100.00}
 ```
 
 ### Withdraw
 
 ```bash
-curl -X POST http://localhost:8080/accounts/alice/withdrawals \
+curl -X POST http://localhost:8080/accounts/jorge/withdrawals \
   -H "Content-Type: application/json" \
   -d '{"amount": 30.00}'
 ```
 ```json
-{"accountId":"alice","balance":70.00}
+{"accountId":"jorge","balance":70.00}
 ```
 
 ### View balance
 
 ```bash
-curl http://localhost:8080/accounts/alice/balance
+curl http://localhost:8080/accounts/jorge/balance
 ```
 ```json
-{"accountId":"alice","balance":70.00}
+{"accountId":"jorge","balance":70.00}
 ```
 
 ### View transaction history
 
 ```bash
-curl http://localhost:8080/accounts/alice/transactions
+curl http://localhost:8080/accounts/jorge/transactions
 ```
 ```json
 [
@@ -75,14 +75,14 @@ curl http://localhost:8080/accounts/alice/transactions
 curl http://localhost:8080/accounts
 ```
 ```json
-[{"accountId":"alice","balance":70.00}]
+[{"accountId":"jorge","balance":70.00}]
 ```
 
 ### Error responses
 
 Errors use Spring Boot's default error body shape, with the failure reason in `message`:
 
-- Withdrawing more than the balance → `400`, `{"message":"Account 'alice' has insufficient funds for this withdrawal", ...}`
+- Withdrawing more than the balance → `400`, `{"message":"Account 'jorge' has insufficient funds for this withdrawal", ...}`
 - Depositing/withdrawing a non-positive amount, or one with more than 2 decimal places → `400`, `{"message":"...", ...}`
 - Viewing the balance/transactions of, or withdrawing from, an account that was never deposited into → `404`, `{"message":"Account 'bob' not found", ...}`
 
