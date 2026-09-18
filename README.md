@@ -1,4 +1,4 @@
-# My Ledger App
+# Tiny Ledger App
 
 A small in-memory ledger service, exposed as a REST API. Supports recording deposits and withdrawals, viewing an account's current balance, and viewing its transaction history.
 
