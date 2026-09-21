@@ -21,12 +21,20 @@ public class Transaction {
         this.timestamp = Instant.now();
     }
 
+    public UUID getId() {
+        return id;
+    }
+
     public TransactionType getType() {
         return type;
     }
 
     public BigDecimal getAmount() {
         return amount;
+    }
+
+    public Instant getTimestamp() {
+        return timestamp;
     }
 
 }
